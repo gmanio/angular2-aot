@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Simple & liteweight Angular2 Application",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc:w": "tsc -w"
   },
   "author": "GmanPark@2017",
   "license": "MIT",
@@ -11,6 +11,18 @@
     "@angular/common": "^2.4.5",
     "@angular/compiler": "^2.4.5",
     "@angular/compiler-cli": "^2.4.5",
-    "@angular/core": "^2.4.5"
+    "@angular/core": "^2.4.5",
+    "@angular/http": "^2.4.5",
+    "@angular/platform-browser": "^2.4.5",
+    "@angular/platform-browser-dynamic": "^2.4.5",
+    "rxjs": "^5.0.3",
+    "zone.js": "^0.7.6"
+  },
+  "devDependencies": {
+    "angular-in-memory-web-api": "^0.2.4",
+    "core-js": "^2.4.1",
+    "plugin-typescript": "^5.3.1",
+    "systemjs": "^0.20.3",
+    "typescript": "^2.1.5"
   }
 }
