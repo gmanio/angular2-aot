@@ -1,0 +1,16 @@
+{
+  "name": "angular2-aot",
+  "version": "0.0.1",
+  "description": "Simple & liteweight Angular2 Application",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GmanPark@2017",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.4.5",
+    "@angular/compiler": "^2.4.5",
+    "@angular/compiler-cli": "^2.4.5",
+    "@angular/core": "^2.4.5"
+  }
+}
