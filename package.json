@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "Simple & liteweight Angular2 Application",
   "scripts": {
+    "roll": "rollup -c configs/rollup.config.js",
+    "build": "ngc -p tsconfig-aot.json",
     "tsc:w": "tsc -w"
   },
   "author": "GmanPark@2017",
@@ -22,6 +24,10 @@
     "angular-in-memory-web-api": "^0.2.4",
     "core-js": "^2.4.1",
     "plugin-typescript": "^5.3.1",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
     "systemjs": "^0.20.3",
     "typescript": "^2.1.5"
   }

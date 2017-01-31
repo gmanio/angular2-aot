@@ -1,0 +1,1 @@
+!function(){"use strict";var o=require("@angular/platform-browser"),r=require("../../aot/src/app/app.module.ngfactory");console.log("Running AOT compiled"),o.platformBrowser().bootstrapModuleFactory(r.AppModuleNgFactory)}();
