@@ -222,4 +222,3 @@ local.properties
 /src/app/*.js
 /src/app/**/*.map
 /src/app/**/*.js
-configs/
