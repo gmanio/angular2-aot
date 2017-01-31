@@ -10,7 +10,8 @@
     <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. -->
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" href="../assets/rx.png">
-
+    <link rel="stylesheet" href="../assets/vendor/swiper/swiper.min.css">
+    <script src="../assets/vendor/swiper/swiper.min.js"></script>
     <script src="../node_modules/core-js/client/shim.min.js"></script>
     <script src="../node_modules/zone.js/dist/zone.js"></script>
     <script src="../node_modules/systemjs/dist/system.js"></script>
@@ -20,6 +21,7 @@
             console.error(err);
         });
     </script>
+    <script>window.module = 'whatever';</script>
 </head>
 <body>
 <my-app>

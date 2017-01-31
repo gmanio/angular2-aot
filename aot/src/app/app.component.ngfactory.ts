@@ -63,6 +63,7 @@ class View_AppComponent_Host0 extends import1.AppView<any> {
   detectChangesInternal(throwOnChange:boolean):void {
     this._AppComponent_0_3.ngDoCheck(this,this._el_0,throwOnChange);
     this.compView_0.internalDetectChanges(throwOnChange);
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._AppComponent_0_3.context.ngAfterViewInit(); } }
   }
   destroyInternal():void {
     this.compView_0.destroy();
@@ -76,13 +77,100 @@ const styles_AppComponent:any[] = ([] as any[]);
 var renderType_AppComponent:import2.RenderComponentType = import3.createRenderComponentType('',0,import4.ViewEncapsulation.None,styles_AppComponent,{});
 export class View_AppComponent0 extends import1.AppView<import0.AppComponent> {
   _text_0:any;
+  _el_1:any;
+  _text_2:any;
+  _text_3:any;
+  _el_4:any;
+  _text_5:any;
+  _text_6:any;
+  _el_7:any;
+  _text_8:any;
+  _text_9:any;
+  _el_10:any;
+  _text_11:any;
+  _text_12:any;
+  _el_13:any;
+  _text_14:any;
+  _text_15:any;
+  _text_16:any;
+  _text_17:any;
+  _el_18:any;
+  _text_19:any;
+  _text_20:any;
+  _el_21:any;
+  _text_22:any;
+  _el_23:any;
+  _text_24:any;
+  _text_25:any;
+  _el_26:any;
+  _text_27:any;
+  _text_28:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_AppComponent0,renderType_AppComponent,import5.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import7.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
-    this._text_0 = this.renderer.createText(parentRenderNode,'Hello world!',(null as any));
-    this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [this._text_0]),(null as any));
+    this._text_0 = this.renderer.createText(parentRenderNode,'\n    ',(null as any));
+    this._el_1 = import3.createRenderElement(this.renderer,parentRenderNode,'div',new import3.InlineArray4(4,'class','swiper-container','style','width: 600px; height: 300px;'),(null as any));
+    this._text_2 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._text_3 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._el_4 = import3.createRenderElement(this.renderer,this._el_1,'div',new import3.InlineArray2(2,'class','swiper-wrapper'),(null as any));
+    this._text_5 = this.renderer.createText(this._el_4,'\n        ',(null as any));
+    this._text_6 = this.renderer.createText(this._el_4,'\n        ',(null as any));
+    this._el_7 = import3.createRenderElement(this.renderer,this._el_4,'div',new import3.InlineArray2(2,'class','swiper-slide'),(null as any));
+    this._text_8 = this.renderer.createText(this._el_7,'Slide 1',(null as any));
+    this._text_9 = this.renderer.createText(this._el_4,'\n        ',(null as any));
+    this._el_10 = import3.createRenderElement(this.renderer,this._el_4,'div',new import3.InlineArray2(2,'class','swiper-slide'),(null as any));
+    this._text_11 = this.renderer.createText(this._el_10,'Slide 2',(null as any));
+    this._text_12 = this.renderer.createText(this._el_4,'\n        ',(null as any));
+    this._el_13 = import3.createRenderElement(this.renderer,this._el_4,'div',new import3.InlineArray2(2,'class','swiper-slide'),(null as any));
+    this._text_14 = this.renderer.createText(this._el_13,'Slide 3',(null as any));
+    this._text_15 = this.renderer.createText(this._el_4,'\n    ',(null as any));
+    this._text_16 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._text_17 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._el_18 = import3.createRenderElement(this.renderer,this._el_1,'div',new import3.InlineArray2(2,'class','swiper-pagination'),(null as any));
+    this._text_19 = this.renderer.createText(this._el_1,'\n    \n    ',(null as any));
+    this._text_20 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._el_21 = import3.createRenderElement(this.renderer,this._el_1,'div',new import3.InlineArray2(2,'class','swiper-button-prev'),(null as any));
+    this._text_22 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._el_23 = import3.createRenderElement(this.renderer,this._el_1,'div',new import3.InlineArray2(2,'class','swiper-button-next'),(null as any));
+    this._text_24 = this.renderer.createText(this._el_1,'\n    \n    ',(null as any));
+    this._text_25 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._el_26 = import3.createRenderElement(this.renderer,this._el_1,'div',new import3.InlineArray2(2,'class','swiper-scrollbar'),(null as any));
+    this._text_27 = this.renderer.createText(this._el_1,'\n    ',(null as any));
+    this._text_28 = this.renderer.createText(parentRenderNode,'\n',(null as any));
+    this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
+      this._text_0,
+      this._el_1,
+      this._text_2,
+      this._text_3,
+      this._el_4,
+      this._text_5,
+      this._text_6,
+      this._el_7,
+      this._text_8,
+      this._text_9,
+      this._el_10,
+      this._text_11,
+      this._text_12,
+      this._el_13,
+      this._text_14,
+      this._text_15,
+      this._text_16,
+      this._text_17,
+      this._el_18,
+      this._text_19,
+      this._text_20,
+      this._el_21,
+      this._text_22,
+      this._el_23,
+      this._text_24,
+      this._text_25,
+      this._el_26,
+      this._text_27,
+      this._text_28
+    ]
+    ),(null as any));
     return (null as any);
   }
 }

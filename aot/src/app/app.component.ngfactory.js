@@ -66,6 +66,11 @@ var View_AppComponent_Host0 = (function (_super) {
     View_AppComponent_Host0.prototype.detectChangesInternal = function (throwOnChange) {
         this._AppComponent_0_3.ngDoCheck(this, this._el_0, throwOnChange);
         this.compView_0.internalDetectChanges(throwOnChange);
+        if (!throwOnChange) {
+            if ((this.numberOfChecks === 0)) {
+                this._AppComponent_0_3.context.ngAfterViewInit();
+            }
+        }
     };
     View_AppComponent_Host0.prototype.destroyInternal = function () {
         this.compView_0.destroy();
@@ -85,8 +90,66 @@ var View_AppComponent0 = (function (_super) {
     }
     View_AppComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
-        this._text_0 = this.renderer.createText(parentRenderNode, 'Hello world!', null);
-        this.init(null, (this.renderer.directRenderer ? null : [this._text_0]), null);
+        this._text_0 = this.renderer.createText(parentRenderNode, '\n    ', null);
+        this._el_1 = import3.createRenderElement(this.renderer, parentRenderNode, 'div', new import3.InlineArray4(4, 'class', 'swiper-container', 'style', 'width: 600px; height: 300px;'), null);
+        this._text_2 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._text_3 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._el_4 = import3.createRenderElement(this.renderer, this._el_1, 'div', new import3.InlineArray2(2, 'class', 'swiper-wrapper'), null);
+        this._text_5 = this.renderer.createText(this._el_4, '\n        ', null);
+        this._text_6 = this.renderer.createText(this._el_4, '\n        ', null);
+        this._el_7 = import3.createRenderElement(this.renderer, this._el_4, 'div', new import3.InlineArray2(2, 'class', 'swiper-slide'), null);
+        this._text_8 = this.renderer.createText(this._el_7, 'Slide 1', null);
+        this._text_9 = this.renderer.createText(this._el_4, '\n        ', null);
+        this._el_10 = import3.createRenderElement(this.renderer, this._el_4, 'div', new import3.InlineArray2(2, 'class', 'swiper-slide'), null);
+        this._text_11 = this.renderer.createText(this._el_10, 'Slide 2', null);
+        this._text_12 = this.renderer.createText(this._el_4, '\n        ', null);
+        this._el_13 = import3.createRenderElement(this.renderer, this._el_4, 'div', new import3.InlineArray2(2, 'class', 'swiper-slide'), null);
+        this._text_14 = this.renderer.createText(this._el_13, 'Slide 3', null);
+        this._text_15 = this.renderer.createText(this._el_4, '\n    ', null);
+        this._text_16 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._text_17 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._el_18 = import3.createRenderElement(this.renderer, this._el_1, 'div', new import3.InlineArray2(2, 'class', 'swiper-pagination'), null);
+        this._text_19 = this.renderer.createText(this._el_1, '\n    \n    ', null);
+        this._text_20 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._el_21 = import3.createRenderElement(this.renderer, this._el_1, 'div', new import3.InlineArray2(2, 'class', 'swiper-button-prev'), null);
+        this._text_22 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._el_23 = import3.createRenderElement(this.renderer, this._el_1, 'div', new import3.InlineArray2(2, 'class', 'swiper-button-next'), null);
+        this._text_24 = this.renderer.createText(this._el_1, '\n    \n    ', null);
+        this._text_25 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._el_26 = import3.createRenderElement(this.renderer, this._el_1, 'div', new import3.InlineArray2(2, 'class', 'swiper-scrollbar'), null);
+        this._text_27 = this.renderer.createText(this._el_1, '\n    ', null);
+        this._text_28 = this.renderer.createText(parentRenderNode, '\n', null);
+        this.init(null, (this.renderer.directRenderer ? null : [
+            this._text_0,
+            this._el_1,
+            this._text_2,
+            this._text_3,
+            this._el_4,
+            this._text_5,
+            this._text_6,
+            this._el_7,
+            this._text_8,
+            this._text_9,
+            this._el_10,
+            this._text_11,
+            this._text_12,
+            this._el_13,
+            this._text_14,
+            this._text_15,
+            this._text_16,
+            this._text_17,
+            this._el_18,
+            this._text_19,
+            this._text_20,
+            this._el_21,
+            this._text_22,
+            this._el_23,
+            this._text_24,
+            this._text_25,
+            this._el_26,
+            this._text_27,
+            this._text_28
+        ]), null);
         return null;
     };
     return View_AppComponent0;
