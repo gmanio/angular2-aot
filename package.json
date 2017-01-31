@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Simple & liteweight Angular2 Application",
   "scripts": {
-    "build": "ngc -p tsconfig-aot.json && rollup -c configs/rollup.config.js",
-    "dev": "concurrently \"tsc -w\" \"lite-server -c configs/lite.config.js\"",
+    "build": "ngc -p configs/tsconfig-aot.json && rollup -c configs/rollup.config.js",
+    "dev": "concurrently \"tsc -p configs/tsconfig.json\" \"lite-server -c configs/lite.config.js\"",
     "tsc:w": "tsc -w"
   },
   "author": "GmanPark@2017",
