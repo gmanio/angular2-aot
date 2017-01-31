@@ -31,7 +31,7 @@ export default {
     plugins: [
         nodeResolve({jsnext: true, module: true}),
         commonjs({
-            include: ['node_modules/rxjs/**', 'node_modules/core-js/**']
+            include: ['node_modules/rxjs/**']
         }),
         uglify()
     ]
