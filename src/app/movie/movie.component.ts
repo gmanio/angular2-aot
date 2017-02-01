@@ -3,8 +3,9 @@
  * @author: Gman Park
  */
 
-import {Component, AfterViewInit} from "@angular/core";
+import {Component, AfterViewInit, ElementRef} from "@angular/core";
 import {Http, Headers, URLSearchParams} from "@angular/http";
+import {Observable} from 'rxjs/Rx';
 
 declare var Swiper: any;
 
@@ -34,12 +35,17 @@ export class MovieComponent implements AfterViewInit {
     })
   }
 
-  constructor(public http: Http) {
+  constructor(public http: Http, private elementRef: ElementRef) {
     this.http = http;
 
     this.params.set('apiKey', MovieComponent.AppKey);
-    this.params.set('q', 'life');
     this.params.set('output', 'json');
+
+    const eventStream = Observable.fromEvent(elementRef.nativeElement, 'keyup')
+      .map(() => this.searchQuery)
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .subscribe(this.search)
   }
 
   search(searchKeyword) {
@@ -48,9 +54,13 @@ export class MovieComponent implements AfterViewInit {
     this.http.get('/contents/movie', {headers: new Headers({'Accept': '*/*'}), search: this.params})
       .subscribe(
         (res) => {
-          console.log(res.json());
+          this.render(res.json())
         }, (err) => {
           console.log(err);
         })
+  }
+
+  render(res){
+
   }
 }
