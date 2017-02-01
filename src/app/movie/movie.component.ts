@@ -4,7 +4,7 @@
  */
 
 import {Component, AfterViewInit} from "@angular/core";
-import {Http, Headers} from "@angular/http";
+import {Http, Headers, URLSearchParams} from "@angular/http";
 
 declare var Swiper: any;
 
@@ -17,16 +17,16 @@ declare var Swiper: any;
 
 export class MovieComponent implements AfterViewInit {
   public static AppKey = 'f2dc1bac4738f37ff5d783ab52a512b5';
+  private params: URLSearchParams = new URLSearchParams();
 
   ngAfterViewInit(): void {
+    console.log("ngAfterViewInit");
     var mySwiper = new Swiper('.swiper-container', {
       // Optional parameters
-      direction: 'vertical',
+      direction: 'horizontal',
       loop: true,
-
       // If we need pagination
       pagination: '.swiper-pagination',
-
       // Navigation arrows
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev'
@@ -35,20 +35,17 @@ export class MovieComponent implements AfterViewInit {
 
   constructor(public http: Http) {
     this.http = http;
-    console.log(this.http);
-    let url = '/api';
 
-    this.http.get(url, {headers: new Headers({'Accept': '*/*'})}).subscribe((res) => {
-      debugger;
-    }, (err) => {
-      console.log(err);
-    })
-    // .then(response => console.log(response.json().data))
-    // .catch(this.handleError);
-  }
+    this.params.set('apiKey', MovieComponent.AppKey);
+    this.params.set('q', '인생');
+    this.params.set('output', 'json');
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
+    this.http.get('/contents/movie', {headers: new Headers({'Accept': '*/*'}), search: this.params})
+      .subscribe(
+        (res) => {
+          console.log(res.json());
+        }, (err) => {
+          console.log(err);
+        })
   }
 }
