@@ -17,10 +17,11 @@ declare var Swiper: any;
 
 export class MovieComponent implements AfterViewInit {
   public static AppKey = 'f2dc1bac4738f37ff5d783ab52a512b5';
+
   private params: URLSearchParams = new URLSearchParams();
+  private searchQuery: string;
 
   ngAfterViewInit(): void {
-    console.log("ngAfterViewInit");
     var mySwiper = new Swiper('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
@@ -37,8 +38,12 @@ export class MovieComponent implements AfterViewInit {
     this.http = http;
 
     this.params.set('apiKey', MovieComponent.AppKey);
-    this.params.set('q', '인생');
+    this.params.set('q', 'life');
     this.params.set('output', 'json');
+  }
+
+  search(searchKeyword) {
+    this.params.set('q', searchKeyword);
 
     this.http.get('/contents/movie', {headers: new Headers({'Accept': '*/*'}), search: this.params})
       .subscribe(

@@ -1,3 +1,5 @@
+<input type="text" [(ngModel)]="searchQuery" (ngModelChange)="search($event)">
+{{searchQuery}}
 <div class="swiper_movie swiper-container">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
