@@ -1,4 +1,8 @@
+:host{ overflow:auto; display:block; width:100%; height:100% }
+.header{ overflow:auto; height:30px; }
 .swiper_movie{
-    width:100%;
-    height:100%;
+  width:100%;
+  height:-moz-calc(100% - (30px));
+  height:-webkit-calc(100% - (30px));
+  height:calc(100% - (30px));
 }
