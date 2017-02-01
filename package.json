@@ -5,6 +5,7 @@
   "scripts": {
     "ngc": "ngc -p tsconfig-aot.json",
     "build": "ngc -p tsconfig-aot.json && rollup -c configs/rollup.config.js",
+    "lite": "lite-server -c configs/lite.config.js",
     "dev": "concurrently \"tsc -w\" \"lite-server -c configs/lite.config.js\"",
     "tsc:w": "tsc -w"
   },
