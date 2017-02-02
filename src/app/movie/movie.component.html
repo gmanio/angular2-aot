@@ -6,9 +6,14 @@
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide" *ngFor="let item of items">
+    <div class="swiper-slide" *ngFor="let item of items; let i = index;" data-hash={index}>
+      <div class="wrap_thumbnail">
+        <img src="{{item.image}}" width="100%" height="100%">
+      </div>
+      <span>{{item.userRating}}</span>
+      <span>{{item.subtitle}}</span>
       <span>{{item.actor}}</span>
-      <img src="{{item.image}}" width="100%" height="100%">
+      <span>{{item.director}}</span>
     </div>
   </div>
   <!-- If we need pagination -->

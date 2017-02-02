@@ -2,7 +2,9 @@
   "/api": {
     "target": "https://apis.daum.net/contents/movie?apikey=f2dc1bac4738f37ff5d783ab52a512b5&q=%EC%98%81%ED%99%94&output=json",
     "secure": false,
-    "pathRewrite": {"^/api" : ""}
+    "pathRewrite": {
+      "^/api": ""
+    }
   },
   "/content": {
     "target": "https://apis.daum.net",
@@ -10,6 +12,11 @@
   },
   "/v1": {
     "target": "https://openapi.naver.com",
+    "secure": false
+  },
+  "/movieChartJson.nhn": {
+    "host": "http://movie.naver.com",
+    "target": "http://movie.naver.com",
     "secure": false
   }
 }

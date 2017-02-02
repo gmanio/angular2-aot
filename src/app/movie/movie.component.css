@@ -6,3 +6,5 @@
   height:-webkit-calc(100% - (30px));
   height:calc(100% - (30px));
 }
+/* Item */
+.wrap_thumbnail{ position:absolute; width:100%; height:100%; text-align:center }

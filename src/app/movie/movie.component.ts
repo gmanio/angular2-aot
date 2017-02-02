@@ -5,7 +5,7 @@
 
 import {Component, ElementRef} from "@angular/core";
 import {Http, Headers, URLSearchParams} from "@angular/http";
-import {Observable} from 'rxjs/Rx';
+import {Observable} from "rxjs";
 
 declare var Swiper: any;
 
@@ -20,7 +20,7 @@ export class MovieComponent {
   public static ClientId = '9VE6rzCQsMyuOLDqmYNe';
   public static ClientSecret = 'd8s_Kygl3d';
 
-  private mySwiper: any;
+  private oSwiper: any;
   private params: URLSearchParams = new URLSearchParams();
   private searchQuery: string;
   private items;
@@ -29,12 +29,14 @@ export class MovieComponent {
     this.http = http;
 
     const eventStream = Observable.fromEvent(elementRef.nativeElement, 'keyup')
-      .map(() => this.searchQuery)
       .debounceTime(500)
+      .map(() => this.searchQuery)
       .distinctUntilChanged()
       .subscribe((res) => {
         this.search(res);
       })
+
+    this.search('movie'); // initial search
   }
 
   search(searchKeyword) {
@@ -55,37 +57,28 @@ export class MovieComponent {
   }
 
   render(res) {
-    console.log(res);
-    if (res.items.length != 0) {
-      this.items = res.items;
-    } else {
-      this.items = [];
-    }
-
+    this.items = res.items;
+console.log(this.items[0]);
     setTimeout(() => {
-      if (!this.mySwiper) {
+      if (!this.oSwiper) {
 
         //initialized Swiper.
-        this.mySwiper = new Swiper('.swiper-container', {
-          // Optional parameters
+        this.oSwiper = new Swiper('.swiper-container', {
           direction: 'horizontal',
           loop: true,
-          // If we need pagination
           pagination: '.swiper-pagination',
-          // Navigation arrows
-          nextButton: '.swiper-button-next',
-          prevButton: '.swiper-button-prev',
-          observer: true,
-          observeParents: true
+          onDestroy: () => {
+            this.oSwiper = null;
+          }
         })
 
       } else {
-        // if (this.items.length == 0) {
-        //   this.mySwiper.destroy(true, true);
-        // } else {
-        //   this.mySwiper.update();
-        // }
+        if (this.items.length == 0) {
+          this.oSwiper.destroy(true, true);
+        } else {
+          this.oSwiper.update();
+        }
       }
-    }, 1000);
+    }, 100);
   }
 }
