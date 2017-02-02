@@ -3,7 +3,7 @@
  * @author: Gman Park
  */
 
-import {Component, AfterViewInit, ElementRef, AfterViewChecked, AfterContentInit, AfterContentChecked} from "@angular/core";
+import {Component, ElementRef, Output, EventEmitter} from "@angular/core";
 import {Http, Headers, URLSearchParams} from "@angular/http";
 import {Observable} from 'rxjs/Rx';
 
@@ -16,25 +16,9 @@ declare var Swiper: any;
   styleUrls: ['./movie.component.css']
 })
 
-export class MovieComponent implements AfterContentChecked {
-  private mySwiper;
-
-  ngAfterContentChecked(): void {
-    setTimeout(() => {
-      if(this.mySwiper.hasOwnProperty('params')){
-        console.log("test");
-        // this.mySwiper.resizeFix(true);
-      }
-    }, 1000);
-  }
-
-  ngAfterViewChecked(): void {
-  }
-
+export class MovieComponent {
   public static AppKey = 'f2dc1bac4738f37ff5d783ab52a512b5';
-  //9VE6rzCQsMyuOLDqmYNe
-  //d8s_Kygl3d
-
+  private mySwiper;
   private params: URLSearchParams = new URLSearchParams();
   private searchQuery: string;
   private items: string;
@@ -42,7 +26,7 @@ export class MovieComponent implements AfterContentChecked {
   constructor(public http: Http, private elementRef: ElementRef) {
     this.http = http;
 
-    this.mySwiper = new Swiper('.swiper-container', {
+    this.mySwiper = new window['Swiper']('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
       loop: true,
@@ -50,12 +34,8 @@ export class MovieComponent implements AfterContentChecked {
       pagination: '.swiper-pagination',
       // Navigation arrows
       nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      observer: true
+      prevButton: '.swiper-button-prev'
     })
-
-    // this.params.set('apiKey', MovieComponent.AppKey);
-    // this.params.set('output', 'json');
 
     const eventStream = Observable.fromEvent(elementRef.nativeElement, 'keyup')
       .map(() => this.searchQuery)
@@ -67,13 +47,13 @@ export class MovieComponent implements AfterContentChecked {
   }
 
   search(searchKeyword) {
+    // parameter set
     this.params.set('query', searchKeyword);
-    this.http.get('/v1/search/movie.json',
-      {
-        headers: new Headers({'Accept': '*/*', 'X-Naver-Client-Id': '9VE6rzCQsMyuOLDqmYNe', 'X-Naver-Client-Secret': 'd8s_Kygl3d'}),
-        search: this.params
-      }
-    )
+
+    this.http.get('/v1/search/movie.json', {
+      headers: new Headers({'Accept': '*/*', 'X-Naver-Client-Id': '9VE6rzCQsMyuOLDqmYNe', 'X-Naver-Client-Secret': 'd8s_Kygl3d'}),
+      search: this.params
+    })
       .subscribe(
         (res) => {
           this.render(res.json())
@@ -84,6 +64,21 @@ export class MovieComponent implements AfterContentChecked {
 
   render(res) {
     this.items = res.items;
-    console.log(this.items);
+
+    setTimeout(() => {
+      console.log(this.mySwiper.height);
+      // debugger;
+      // this.mySwiper.resizeFix(true);
+      // this.mySwiper = new Swiper('.swiper-container', {
+      //   // Optional parameters
+      //   direction: 'horizontal',
+      //   loop: true,
+      //   // If we need pagination
+      //   pagination: '.swiper-pagination',
+      //   // Navigation arrows
+      //   nextButton: '.swiper-button-next',
+      //   prevButton: '.swiper-button-prev'
+      // })
+    }, 1000)
   }
 }
