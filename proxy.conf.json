@@ -7,5 +7,9 @@
   "/content": {
     "target": "https://apis.daum.net",
     "secure": false
+  },
+  "/v1": {
+    "target": "https://openapi.naver.com",
+    "secure": false
   }
 }
