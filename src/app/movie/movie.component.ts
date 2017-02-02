@@ -3,7 +3,7 @@
  * @author: Gman Park
  */
 
-import {Component, ElementRef, Output, EventEmitter} from "@angular/core";
+import {Component, ElementRef} from "@angular/core";
 import {Http, Headers, URLSearchParams} from "@angular/http";
 import {Observable} from 'rxjs/Rx';
 
@@ -17,25 +17,16 @@ declare var Swiper: any;
 })
 
 export class MovieComponent {
-  public static AppKey = 'f2dc1bac4738f37ff5d783ab52a512b5';
-  private mySwiper;
+  public static ClientId = '9VE6rzCQsMyuOLDqmYNe';
+  public static ClientSecret = 'd8s_Kygl3d';
+
+  private mySwiper: any;
   private params: URLSearchParams = new URLSearchParams();
   private searchQuery: string;
-  private items: string;
+  private items;
 
   constructor(public http: Http, private elementRef: ElementRef) {
     this.http = http;
-
-    this.mySwiper = new window['Swiper']('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-      // If we need pagination
-      pagination: '.swiper-pagination',
-      // Navigation arrows
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev'
-    })
 
     const eventStream = Observable.fromEvent(elementRef.nativeElement, 'keyup')
       .map(() => this.searchQuery)
@@ -49,9 +40,10 @@ export class MovieComponent {
   search(searchKeyword) {
     // parameter set
     this.params.set('query', searchKeyword);
+    this.params.set('display', '100');
 
     this.http.get('/v1/search/movie.json', {
-      headers: new Headers({'Accept': '*/*', 'X-Naver-Client-Id': '9VE6rzCQsMyuOLDqmYNe', 'X-Naver-Client-Secret': 'd8s_Kygl3d'}),
+      headers: new Headers({'Accept': '*/*', 'X-Naver-Client-Id': MovieComponent.ClientId, 'X-Naver-Client-Secret': MovieComponent.ClientSecret}),
       search: this.params
     })
       .subscribe(
@@ -63,22 +55,37 @@ export class MovieComponent {
   }
 
   render(res) {
-    this.items = res.items;
+    console.log(res);
+    if (res.items.length != 0) {
+      this.items = res.items;
+    } else {
+      this.items = [];
+    }
 
     setTimeout(() => {
-      console.log(this.mySwiper.height);
-      // debugger;
-      // this.mySwiper.resizeFix(true);
-      // this.mySwiper = new Swiper('.swiper-container', {
-      //   // Optional parameters
-      //   direction: 'horizontal',
-      //   loop: true,
-      //   // If we need pagination
-      //   pagination: '.swiper-pagination',
-      //   // Navigation arrows
-      //   nextButton: '.swiper-button-next',
-      //   prevButton: '.swiper-button-prev'
-      // })
-    }, 1000)
+      if (!this.mySwiper) {
+
+        //initialized Swiper.
+        this.mySwiper = new Swiper('.swiper-container', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: true,
+          // If we need pagination
+          pagination: '.swiper-pagination',
+          // Navigation arrows
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev',
+          observer: true,
+          observeParents: true
+        })
+
+      } else {
+        // if (this.items.length == 0) {
+        //   this.mySwiper.destroy(true, true);
+        // } else {
+        //   this.mySwiper.update();
+        // }
+      }
+    }, 1000);
   }
 }
