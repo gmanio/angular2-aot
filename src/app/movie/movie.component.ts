@@ -70,6 +70,10 @@ export class MovieComponent {
           pagination: '.swiper-pagination',
           onDestroy: () => {
             this.oSwiper = null;
+          },
+          onResize: () => {
+            this.oSwiper.update();
+            this.oSwiper.slideTo(1, 1000);
           }
         });
 
@@ -78,8 +82,9 @@ export class MovieComponent {
           this.oSwiper.destroy(true, true);
         } else {
           this.oSwiper.update();
+          this.oSwiper.slideTo(1, 1000);
         }
       }
-    }, 100);
+    }, 500);
   }
 }
