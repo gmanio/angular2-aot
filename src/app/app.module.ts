@@ -5,16 +5,20 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {MovieComponent} from './movie/movie.component';
+import {PageNotFoundComponent} from "./util/pagenotfound.component";
+import {routingModule} from "./app.routes";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieComponent
+    MovieComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

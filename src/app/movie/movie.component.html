@@ -8,7 +8,7 @@
     <!-- Slides -->
     <div class="swiper-slide" *ngFor="let item of items; let i = index;" data-hash={index}>
       <div class="wrap_thumbnail">
-        <img src="{{item.image}}" width="100%" height="100%">
+        <img src="{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}" width="100%" height="100%">
       </div>
       <span>{{item.userRating}}</span>
       <span>{{item.subtitle}}</span>

@@ -1,3 +1,8 @@
+/**
+ * Created on 2017-02-01.
+ * @author: Gman Park
+ */
+
 import {Component, ElementRef} from '@angular/core';
 import {Http, Headers, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
