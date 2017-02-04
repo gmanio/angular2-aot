@@ -47,5 +47,9 @@
   height:calc(100% - (30px));
 }
 /* Item */
-.wrap_thumbnail{ overflow:hidden; position:relative; text-align:center }
+.wrap_thumbnail{ overflow:hidden; position:relative; margin:10px; text-align:center }
+.info_movie{ padding:10px; }
+.info_movie h3{ margin:10px 0; }
+.info_movie dt{ font-size:14px; font-weight:bold; }
+.info_movie dd{ margin-top:4px; }
 .footer{ position:absolute; bottom:20px; right:10px; font-size:10px; color:#000; opacity:0.7 }

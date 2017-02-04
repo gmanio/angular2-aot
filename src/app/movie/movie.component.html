@@ -11,15 +11,15 @@
       <div class="wrap_thumbnail">
         <img src="{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}" width="200px" height="200px">
       </div>
-      <div>
+      <div class="info_movie">
         <h3>Info :: Not yet implemented</h3>
         <dl>
           <dt>평점</dt>
-          <dd><span>{{item.userRating}}</span></dd>
+          <dd><span>{{item.userRating?item.userRating:'No Data'}}</span></dd>
           <dt>감독</dt>
-          <dd><span>{{item.director}}</span></dd>
+          <dd><span>{{item.director?item.director:'No Data'}}</span></dd>
           <dt>배우</dt>
-          <dd><span>{{item.actor}}</span></dd>
+          <dd><span>{{item.actor?item.actor:'No Data'}}</span></dd>
         </dl>
       </div>
     </div>
