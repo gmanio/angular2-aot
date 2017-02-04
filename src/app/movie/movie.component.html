@@ -1,6 +1,7 @@
 <div class="header">
-  <input type="text" class="inp_search" [(ngModel)]="searchQuery">
-  {{searchQuery}}
+  <div class="search">
+    <input type="text" class="searchTerm inp_search" placeholder="영화 이름을 입력하세요" [(ngModel)]="searchQuery"/><input class="searchButton" type="submit"/>
+  </div>
 </div>
 <div class="swiper_movie swiper-container">
   <!-- Additional required wrapper -->
@@ -8,12 +9,19 @@
     <!-- Slides -->
     <div class="swiper-slide" *ngFor="let item of items; let i = index;" data-hash={index}>
       <div class="wrap_thumbnail">
-        <img src="{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}" width="100%" height="100%">
+        <img src="{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}" width="200px" height="200px">
       </div>
-      <span>{{item.userRating}}</span>
-      <span>{{item.subtitle}}</span>
-      <span>{{item.actor}}</span>
-      <span>{{item.director}}</span>
+      <div>
+        <h3>Info :: Not yet implemented</h3>
+        <dl>
+          <dt>평점</dt>
+          <dd><span>{{item.userRating}}</span></dd>
+          <dt>감독</dt>
+          <dd><span>{{item.director}}</span></dd>
+          <dt>배우</dt>
+          <dd><span>{{item.actor}}</span></dd>
+        </dl>
+      </div>
     </div>
   </div>
   <!-- If we need pagination -->
@@ -22,4 +30,7 @@
   <!-- If we need navigation buttons -->
   <!--<div class="swiper-button-prev"></div>-->
   <!--<div class="swiper-button-next"></div>-->
+</div>
+<div class="footer">
+  <span>Copyright @ gmanpark</span>
 </div>
