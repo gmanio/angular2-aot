@@ -45,7 +45,7 @@ var MovieComponent = (function () {
         var _this = this;
         // parameter set
         this.params.set('query', searchKeyword);
-        this.params.set('display', '100');
+        this.params.set('display', '10');
         this.http.get('/v1/search/movie.json', {
             headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({
                 'Accept': '*/*',
@@ -67,27 +67,15 @@ var MovieComponent = (function () {
             if (!_this.oSwiper) {
                 _this.oSwiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
-                    loop: true,
                     pagination: '.swiper-pagination',
-                    onDestroy: function () {
-                        _this.oSwiper = null;
-                    },
-                    onResize: function () {
-                        _this.oSwiper.update();
-                        _this.oSwiper.slideTo(1, 1000);
-                    }
+                    observer: true,
+                    observeParents: true
                 });
             }
             else {
-                if (_this.items.length === 0) {
-                    _this.oSwiper.destroy(true, true);
-                }
-                else {
-                    _this.oSwiper.update();
-                    _this.oSwiper.slideTo(1, 1000);
-                }
+                _this.oSwiper.update(true);
             }
-        }, 500);
+        }, 400);
     };
     MovieComponent.ClientId = '9VE6rzCQsMyuOLDqmYNe';
     MovieComponent.ClientSecret = 'd8s_Kygl3d';

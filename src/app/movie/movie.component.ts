@@ -42,7 +42,7 @@ export class MovieComponent {
   search(searchKeyword) {
     // parameter set
     this.params.set('query', searchKeyword);
-    this.params.set('display', '100');
+    this.params.set('display', '10');
 
     this.http.get('/v1/search/movie.json', {
       headers: new Headers({
@@ -66,25 +66,13 @@ export class MovieComponent {
       if (!this.oSwiper) {
         this.oSwiper = new Swiper('.swiper-container', {
           direction: 'horizontal',
-          loop: true,
           pagination: '.swiper-pagination',
-          onDestroy: () => {
-            this.oSwiper = null;
-          },
-          onResize: () => {
-            this.oSwiper.update();
-            this.oSwiper.slideTo(1, 1000);
-          }
+          observer: true,
+          observeParents: true
         });
-
       } else {
-        if (this.items.length === 0) {
-          this.oSwiper.destroy(true, true);
-        } else {
-          this.oSwiper.update();
-          this.oSwiper.slideTo(1, 1000);
-        }
+        this.oSwiper.update(true);
       }
-    }, 500);
+    }, 400);
   }
 }
