@@ -36,7 +36,8 @@ export class MovieComponent {
         this.search(res);
       });
 
-    this.search('movie'); // initial search
+    this.searchQuery = 'movie'; /*init keyword*/
+    this.search(this.searchQuery); // initial search
   }
 
   search(searchKeyword) {
@@ -62,6 +63,8 @@ export class MovieComponent {
 
   render(res) {
     this.items = res.items;
+    console.log(this.items);
+
     setTimeout(() => {
       if (!this.oSwiper) {
         this.oSwiper = new Swiper('.swiper-container', {

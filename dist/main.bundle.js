@@ -39,7 +39,8 @@ var MovieComponent = (function () {
             .subscribe(function (res) {
             _this.search(res);
         });
-        this.search('movie'); // initial search
+        this.searchQuery = 'movie'; /*init keyword*/
+        this.search(this.searchQuery); // initial search
     }
     MovieComponent.prototype.search = function (searchKeyword) {
         var _this = this;
@@ -63,6 +64,7 @@ var MovieComponent = (function () {
     MovieComponent.prototype.render = function (res) {
         var _this = this;
         this.items = res.items;
+        console.log(this.items);
         setTimeout(function () {
             if (!_this.oSwiper) {
                 _this.oSwiper = new Swiper('.swiper-container', {
@@ -379,7 +381,7 @@ module.exports = "<!--<app-movie></app-movie>-->\n<router-outlet></router-outlet
 /***/ 702:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\r\n  <div class=\"search\">\r\n    <input type=\"text\" class=\"searchTerm inp_search\" placeholder=\"영화 이름을 입력하세요\" [(ngModel)]=\"searchQuery\"/><input class=\"searchButton\" type=\"submit\"/>\r\n  </div>\r\n</div>\r\n<div class=\"swiper_movie swiper-container\">\r\n  <!-- Additional required wrapper -->\r\n  <div class=\"swiper-wrapper\">\r\n    <!-- Slides -->\r\n    <div class=\"swiper-slide\" *ngFor=\"let item of items; let i = index;\" data-hash={index}>\r\n      <div class=\"wrap_thumbnail\">\r\n        <img src=\"{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}\" width=\"200px\" height=\"200px\">\r\n      </div>\r\n      <div class=\"info_movie\">\r\n        <h3>Info :: Not yet implemented</h3>\r\n        <dl>\r\n          <dt>평점</dt>\r\n          <dd><span>{{item.userRating?item.userRating:'No Data'}}</span></dd>\r\n          <dt>감독</dt>\r\n          <dd><span>{{item.director?item.director:'No Data'}}</span></dd>\r\n          <dt>배우</dt>\r\n          <dd><span>{{item.actor?item.actor:'No Data'}}</span></dd>\r\n        </dl>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- If we need pagination -->\r\n  <div class=\"swiper-pagination\"></div>\r\n\r\n  <!-- If we need navigation buttons -->\r\n  <!--<div class=\"swiper-button-prev\"></div>-->\r\n  <!--<div class=\"swiper-button-next\"></div>-->\r\n</div>\r\n<div class=\"footer\">\r\n  <span>Copyright @ gmanpark</span>\r\n</div>\r\n"
+module.exports = "<div class=\"header\">\r\n  <div class=\"search\">\r\n    <input type=\"text\" class=\"searchTerm inp_search\" placeholder=\"영화 이름을 입력하세요\" [(ngModel)]=\"searchQuery\"/><input class=\"searchButton\" type=\"submit\"/>\r\n  </div>\r\n</div>\r\n<div class=\"swiper_movie swiper-container\">\r\n  <!-- Additional required wrapper -->\r\n  <div class=\"swiper-wrapper\">\r\n    <!-- Slides -->\r\n    <div class=\"swiper-slide\" *ngFor=\"let item of items; let i = index;\" data-hash={index}>\r\n      <div class=\"wrap_thumbnail\">\r\n        <img src=\"{{item.image?item.image:'http://static.naver.net/movie/2012/06/dft_img203x290.png'}}\" width=\"200px\" height=\"200px\">\r\n      </div>\r\n      <div class=\"info_movie\">\r\n        <dl>\r\n          <dt>타이틀</dt>\r\n          <dd><h3 [innerHTML]=\"item.title?item.title:'No Data'\"></h3></dd>\r\n          <dt>평점</dt>\r\n          <dd><span>{{item.userRating?item.userRating:'No Data'}}</span></dd>\r\n          <dt>감독</dt>\r\n          <dd><span>{{item.director?item.director:'No Data'}}</span></dd>\r\n          <dt>배우</dt>\r\n          <dd><span>{{item.actor?item.actor:'No Data'}}</span></dd>\r\n          <dt>제작년도</dt>\r\n          <dd><span>{{item.pubDate?item.pubDate:'No Data'}}</span></dd>\r\n        </dl>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- If we need pagination -->\r\n  <div class=\"swiper-pagination\"></div>\r\n\r\n  <!-- If we need navigation buttons -->\r\n  <!--<div class=\"swiper-button-prev\"></div>-->\r\n  <!--<div class=\"swiper-button-next\"></div>-->\r\n</div>\r\n<div class=\"footer\">\r\n  <span>Copyright @ gmanpark</span>\r\n</div>\r\n"
 
 /***/ }),
 
