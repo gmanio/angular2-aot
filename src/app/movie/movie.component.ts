@@ -36,7 +36,8 @@ export class MovieComponent {
         this.search(res);
       });
 
-    this.searchQuery = 'movie'; /*init keyword*/
+    this.searchQuery = 'movie';
+    /*init keyword*/
     this.search(this.searchQuery); // initial search
   }
 
@@ -63,19 +64,23 @@ export class MovieComponent {
 
   render(res) {
     this.items = res.items;
-    console.log(this.items);
 
-    setTimeout(() => {
-      if (!this.oSwiper) {
-        this.oSwiper = new Swiper('.swiper-container', {
-          direction: 'horizontal',
-          pagination: '.swiper-pagination',
-          observer: true,
-          observeParents: true
-        });
-      } else {
-        this.oSwiper.update(true);
+    const observableSwiper = Observable.create()
+      .delay(400);
+
+    observableSwiper.subscribe(
+      () => {
+        if (!this.oSwiper) {
+          this.oSwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            pagination: '.swiper-pagination',
+            observer: true,
+            observeParents: true
+          });
+        } else {
+          this.oSwiper.update(true);
+        }
       }
-    }, 400);
+    );
   }
 }

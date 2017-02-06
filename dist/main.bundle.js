@@ -39,7 +39,8 @@ var MovieComponent = (function () {
             .subscribe(function (res) {
             _this.search(res);
         });
-        this.searchQuery = 'movie'; /*init keyword*/
+        this.searchQuery = 'movie';
+        /*init keyword*/
         this.search(this.searchQuery); // initial search
     }
     MovieComponent.prototype.search = function (searchKeyword) {
@@ -64,8 +65,9 @@ var MovieComponent = (function () {
     MovieComponent.prototype.render = function (res) {
         var _this = this;
         this.items = res.items;
-        console.log(this.items);
-        setTimeout(function () {
+        var observableSwiper = __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["Observable"].create()
+            .delay(400);
+        observableSwiper.subscribe(function () {
             if (!_this.oSwiper) {
                 _this.oSwiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
@@ -77,7 +79,7 @@ var MovieComponent = (function () {
             else {
                 _this.oSwiper.update(true);
             }
-        }, 400);
+        });
     };
     MovieComponent.ClientId = '9VE6rzCQsMyuOLDqmYNe';
     MovieComponent.ClientSecret = 'd8s_Kygl3d';
