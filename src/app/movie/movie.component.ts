@@ -65,22 +65,19 @@ export class MovieComponent {
   render(res) {
     this.items = res.items;
 
-    const observableSwiper = Observable.create()
-      .delay(400);
+    setTimeout(() => {
+      console.log('call');
+      if (!this.oSwiper) {
+        this.oSwiper = new Swiper('.swiper-container', {
+          direction: 'horizontal',
+          pagination: '.swiper-pagination',
+          observer: true,
+          observeParents: true
+        });
+      } else {
+        this.oSwiper.update(true);
+      };
+    }, 400);
 
-    observableSwiper.subscribe(
-      () => {
-        if (!this.oSwiper) {
-          this.oSwiper = new Swiper('.swiper-container', {
-            direction: 'horizontal',
-            pagination: '.swiper-pagination',
-            observer: true,
-            observeParents: true
-          });
-        } else {
-          this.oSwiper.update(true);
-        }
-      }
-    );
   }
 }

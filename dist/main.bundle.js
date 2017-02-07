@@ -65,9 +65,8 @@ var MovieComponent = (function () {
     MovieComponent.prototype.render = function (res) {
         var _this = this;
         this.items = res.items;
-        var observableSwiper = __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["Observable"].create()
-            .delay(400);
-        observableSwiper.subscribe(function () {
+        setTimeout(function () {
+            console.log('call');
             if (!_this.oSwiper) {
                 _this.oSwiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
@@ -79,7 +78,8 @@ var MovieComponent = (function () {
             else {
                 _this.oSwiper.update(true);
             }
-        });
+            ;
+        }, 400);
     };
     MovieComponent.ClientId = '9VE6rzCQsMyuOLDqmYNe';
     MovieComponent.ClientSecret = 'd8s_Kygl3d';
