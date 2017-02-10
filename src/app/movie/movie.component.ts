@@ -26,8 +26,6 @@ export class MovieComponent {
   private items;
 
   constructor(public http: Http, private elementRef: ElementRef) {
-    this.http = http;
-
     Observable.fromEvent(elementRef.nativeElement, 'keyup')
       .debounceTime(500)
       .map(() => this.searchQuery)
@@ -46,27 +44,29 @@ export class MovieComponent {
     this.params.set('query', searchKeyword);
     this.params.set('display', '10');
 
-    this.http.get('/v1/search/movie.json', {
+    this.getMovieList().subscribe(
+      (res) => {
+        this.render(res.json());
+      }, (err) => {
+        console.log(err);
+      });
+  }
+
+  getMovieList() {
+    return this.http.get('/v1/search/movie.json', {
       headers: new Headers({
         'Accept': '*/*',
         'X-Naver-Client-Id': MovieComponent.ClientId,
         'X-Naver-Client-Secret': MovieComponent.ClientSecret
       }),
       search: this.params
-    })
-      .subscribe(
-        (res) => {
-          this.render(res.json());
-        }, (err) => {
-          console.log(err);
-        });
+    });
   }
 
   render(res) {
     this.items = res.items;
 
     setTimeout(() => {
-      console.log('call');
       if (!this.oSwiper) {
         this.oSwiper = new Swiper('.swiper-container', {
           direction: 'horizontal',
@@ -76,7 +76,8 @@ export class MovieComponent {
         });
       } else {
         this.oSwiper.update(true);
-      };
+      }
+      ;
     }, 400);
 
   }
