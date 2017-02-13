@@ -77,7 +77,6 @@ export class MovieComponent {
       } else {
         this.oSwiper.update(true);
       }
-      ;
     }, 400);
 
   }
