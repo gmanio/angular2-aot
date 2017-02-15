@@ -54,7 +54,7 @@ export class MovieComponent {
 
   getMovieList() {
     // https://openapi.naver.com/v1/search/movie.json
-    return this.http.get('openapi.naver.com/v1/search/movie.json', {
+    return this.http.get('/v1/search/movie.json', {
       headers: new Headers({
         'Accept': '*/*',
         'X-Naver-Client-Id': MovieComponent.ClientId,

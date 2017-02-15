@@ -5,10 +5,10 @@
     "changeOrigin": true,
     "logLevel": "debug"
   },
-  "^/openapi.naver.com": {
+  "openapi.naver.com": {
     "target": "https://openapi.naver.com",
     "pathRewrite": {
-      "^/openapi.naver.com": ""
+      "openapi.naver.com": ""
     },
     "secure": false,
     "changeOrigin": true,
