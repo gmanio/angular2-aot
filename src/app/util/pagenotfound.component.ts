@@ -5,6 +5,7 @@
 import {Component} from '@angular/core';
 
 @Component({
+  styleUrls: ['pagenotfound.component.css'],
   template: `
         <div>
             <h3>Angular2 Router</h3>
