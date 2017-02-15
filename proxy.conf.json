@@ -1,10 +1,17 @@
 {
-  "/v1": {
+  "/v1/**": {
     "target": "https://openapi.naver.com",
-    "secure": false
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   },
-  "/v1/search":{
+  "^/openapi.naver.com": {
     "target": "https://openapi.naver.com",
-    "secure": false
+    "pathRewrite": {
+      "^/openapi.naver.com": ""
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
