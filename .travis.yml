@@ -13,8 +13,9 @@ node_js:
   - "7"
 
 before_script:
-  - npm install -g @angular/cli
+  - npm install -g @angular/cli@latest
   - npm install
+  - npm update
 
 script:
     - ng build --prod
