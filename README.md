@@ -1,5 +1,4 @@
-# Rx-angular2
-
+# Rx-angular2 ![Build Status](https://travis-ci.org/gmanio/angular2-movie.svg?branch=master)
 #[ View ] : (https://gman.io/movie)
 
 for build simple & lightweight angular2 Application.
