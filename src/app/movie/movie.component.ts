@@ -22,8 +22,8 @@ export class MovieComponent {
 
   private oSwiper: any;
   private params: URLSearchParams = new URLSearchParams();
-  private searchQuery: string;
-  private items;
+  searchQuery: string;
+  items;
 
   constructor(public http: Http, private elementRef: ElementRef) {
     Observable.fromEvent(elementRef.nativeElement, 'keyup')
